@@ -13,8 +13,5 @@ jobs:
       - name: Ping Supabase
         run: |
           echo "🏓 Pinging Supabase..."
-          curl -s -o /dev/null -w "%{http_code}" \
-            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-            "${{ secrets.SUPABASE_URL }}/rest/v1/" || true
-          echo "✅ Supabase ping completed at $(date -u)"
-          echo "✅ Supabase ping completed at $(date -u)
+          curl -s -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" "${{ secrets.SUPABASE_URL }}/rest/v1/" || echo "Ping attempted"
+          echo "✅ Done at $(date -u)"
